@@ -11,6 +11,7 @@ import com.uxforms.dsl.widgets.Input.inputText
 import com.uxforms.dsl.widgets.RadioGroup.radioGroup
 import com.uxforms.dsl.widgets.asRow
 import com.uxforms.domain.constraint.FixedChoice.fixedChoice
+import com.uxforms.dsl.widgets.Content
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -67,6 +68,9 @@ object MyFormDefinitionFactory extends FormDefinitionFactory with TemplateLoader
 
         inputText("elementName", "elementName.label" -> "What type of property is it?", required),
         inputText("elementName", "elementName.label" -> "How many bedrooms in the property?", required),
+
+        Content("<h2>A sub-heading</h2>"),
+
         inputText("elementName", "elementName.label" -> "How many bathrooms are there?", required),
         inputText("elementName", "elementName.label" -> "When was the property built?", required),
         inputText("elementName", "elementName.label" -> "Does the property have a garage or outbuildings (including sheds)?", required),
