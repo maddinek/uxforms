@@ -8,6 +8,9 @@ import com.uxforms.domain.{FormDefinition, FormDefinitionFactory, ResourceBundle
 import com.uxforms.dsl.containers.mustache.Section.section
 import com.uxforms.dsl.helpers.FormDefinitionHelper._
 import com.uxforms.dsl.widgets.Input.inputText
+import com.uxforms.dsl.widgets.RadioGroup.radioGroup
+import com.uxforms.dsl.widgets.asRow
+import com.uxforms.domain.constraint.FixedChoice.fixedChoice
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -56,7 +59,7 @@ object MyFormDefinitionFactory extends FormDefinitionFactory with TemplateLoader
         "firstSectionMessages",
 
         inputText("houseName", "houseName.label" -> "House name or number", required),
-        inputText("postCode", "postCode.label" -> "Postcode", required),
+        inputText("postCode", "postCode.label" -> "Postcode", required)
 
       ),
       section(
@@ -79,7 +82,7 @@ object MyFormDefinitionFactory extends FormDefinitionFactory with TemplateLoader
 
         inputText("elementName", "elementName.label" -> "Number of adults at the property?", required),
         inputText("elementName", "elementName.label" -> "Number of children under 18 years at the property?", required),
-        inputText("elementName", "elementName.label" -> "Are there any lodgers at the property?", required),
+        radioGroup("lodgers", "lodgers.label" -> "Are there any lodgers at the property?", required() ++ fixedChoice("yesNoOptions"), "yesNoOptions", asRow),
         inputText("elementName", "elementName.label" -> "Does anyone at the property smoke?", required),
         inputText("elementName", "elementName.label" -> "Who is to be covered in the property?", required),
         inputText("elementName", "elementName.label" -> "Who owns the property?", required),
