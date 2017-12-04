@@ -55,8 +55,8 @@ object MyFormDefinitionFactory extends FormDefinitionFactory with TemplateLoader
       section(
         "firstSectionMessages",
 
-        inputText("elementName", "elementName.label" -> "House name or number", required),
-        inputText("elementName", "elementName.label" -> "Postcode", required),
+        inputText("houseName", "houseName.label" -> "House name or number", required),
+        inputText("postCode", "postCode.label" -> "Postcode", required),
 
 
         inputText("elementName", "elementName.label" -> "What type of property is it?", required),
